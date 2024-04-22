@@ -1,0 +1,12 @@
+---
+
+interface Props {
+	refe: string;
+}
+
+const { refe } = Astro.props;
+
+---
+<a href={refe} class="mx-1 mt-2 md:mt-0 text-sm px-1 md:px-3 py-2 md:py-0 rounded-lg">
+    <slot />
+</a>

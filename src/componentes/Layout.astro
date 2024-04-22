@@ -1,0 +1,72 @@
+---
+interface Props {
+	titulo: string;
+}
+
+const { titulo } = Astro.props;
+
+import Navbar from "../componentes/Navbar.astro"
+
+---
+
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+		<meta name="generator" content={Astro.generator} />
+		<title>{titulo}</title>
+	</head>
+	<body>
+        <Navbar/>
+		<slot />
+	</body>
+</html>
+<style is:global>
+    html{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        background-color: rgb(8,47,73);
+        background-image: linear-gradient(0deg, #0278c7 0%, rgb(8,47,73) 100%);
+        font-family: "Nunito", sans-serif;
+        font-style: normal;
+        color: rgb(186, 230, 253);
+        scrollbar-color: rgb(8, 47, 73) rgb(186, 230, 253);
+        scrollbar-width: thin;
+        scroll-behavior: smooth;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    a {
+        color: rgb(186, 230, 253);
+    }
+    a:hover {
+        color: white;
+        transition-duration: 300ms;
+    }
+
+    svg {
+        height: 20px;
+        margin-right: 6px;
+    }
+
+    path{
+        fill: white;
+    }
+
+    li {
+        margin-top: 24px;
+    }
+
+</style>
