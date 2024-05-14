@@ -85,7 +85,9 @@ import NavA from "./NavA.astro";
 
             botonAToggle.forEach(botonA => {
                 botonA.addEventListener('click', () => {
+                    if (window.innerWidth <= 767) {
                     toggle();
+                    }
                 });
             });
 

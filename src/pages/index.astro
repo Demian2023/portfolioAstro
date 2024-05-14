@@ -13,7 +13,7 @@ import fotoLista from "../imagenes/lista de tareas.jpg"
 
 ---
 <div id="inicio"></div>
-<Layout titulo="Portfolio Demián - Programador web">
+<Layout titulo="Portfolio Demián - Diseño web">
 	<Contenedor id="inicio">
 		<Image src={fotomia} alt="logo" class="w-16 aspect-auto mb-2 rounded-full bg-sky-200 border-2 border-white"/>
 		<div class="flex items-end">
@@ -100,7 +100,6 @@ import fotoLista from "../imagenes/lista de tareas.jpg"
 	const observer = new IntersectionObserver(entries => {
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
-				console.log("¡Entró en la vista!");
 				entry.target.style.animation = "mostrar 1s forwards";
 			} else {
 				entry.target.style.animation = "";
