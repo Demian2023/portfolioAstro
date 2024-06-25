@@ -5,12 +5,12 @@ import logo from "../imagenes/logo nuevo blanco.png";
 import NavA from "./NavA.astro";
 
 ---
-<nav id="navbar" class="h-14 top-0 z-10 w-full absolute">
+<nav id="navbar" class="h-fit min-h-14 top-0 z-10 w-full absolute">
     <div class="py-2 px-10 flex justify-between md:justify-around md:px-0 md:align-top">
         <div class="m-0 p-0">
             <a href="/#inicio" class="flex items-center">
                 <Image src={logo} alt="logo" class="w-9 aspect-auto mx-2" />
-                <h2>Demi</h2>
+                <p>Demi</p>
             </a>
         </div>
         <div class="flex justify-end md:hidden">
@@ -18,114 +18,129 @@ import NavA from "./NavA.astro";
                 <svg class="h-8" viewBox="0 0 448 512" fill="rgb(186, 230, 253)"><path d="m0,80.75c0,-12.30703 14.3,-22.25 32,-22.25l384,0c17.7,0 32,9.94297 32,22.25s-14.3,22.25 -32,22.25l-384,0c-17.7,0 -32,-9.94297 -32,-22.25zm0,111.25c0,-12.30703 14.3,-22.25 32,-22.25l384,0c17.7,0 32,9.94297 32,22.25s-14.3,22.25 -32,22.25l-384,0c-17.7,0 -32,-9.94297 -32,-22.25zm448,111.25c0,12.30703 -14.3,22.25 -32,22.25l-384,0c-17.7,0 -32,-9.94297 -32,-22.25s14.3,-22.25 32,-22.25l384,0c17.7,0 32,9.94297 32,22.25z"/></svg>
             </button>
         </div>
-        <div id="mostrar" class="hidden absolute flex-col mt-6 rounded-md text-center p-3 right-8 w-fit bg-sky-950/60 backdrop-blur-sm md:flex md:relative md:flex-row md:mt-2 md:pt-0 md:right-0">
+        <div id="mostrar" class="hidden absolute flex-col mt-6 rounded-md text-center p-3 right-8 w-fit bg-sky-950/60 backdrop-blur-sm md:flex md:relative md:flex-row md:mt-2 md:pt-0 md:right-0 z-10">
             <NavA refe="/#experiencia">
-                <h2 class="usarToggle">Experiencia</h2>
+                <p class="usarToggle">Experiencia</p>
             </NavA>
             <NavA refe="/#proyectos">
-                <h2 class="usarToggle">Proyectos realizados</h2> 
+                <p class="usarToggle">Proyectos realizados</p> 
             </NavA>
             <NavA refe="/#sobremi">
-                <h2 class="usarToggle">Sobre mí</h2>
+                <p class="usarToggle">Sobre mí</p>
             </NavA>
         </div>
-
-        <script>
-            // codigo para desplegar el navbar
-            const botonDesplegable = document.getElementById("botonDesplegable");
-            const mostrar = document.getElementById("mostrar");
-            const navbar = document.getElementById("navbar");
-            const botonAToggle = document.querySelectorAll('.usarToggle');
-
-            const toggle = () => {
-                mostrar.classList.toggle("animacion");
-                if (mostrar.classList.contains("animacion")) {
-                    mostrar.classList.toggle("hidden");
-                    mostrar.classList.toggle("flex");
-                    mostrar.classList.remove("animacion-salida");
-                } else {
-                    mostrar.classList.toggle("animacion-salida");
-                    setTimeout(function() {
-                    mostrar.classList.toggle("hidden");
-                    mostrar.classList.toggle("flex");
-                    mostrar.classList.remove("animacion-salida");
-                }, 500); 
-                }
-            };
-
-            botonDesplegable.addEventListener("click", toggle);
-
-            const agregarClases = () => {
-                navbar.classList.add("fixed")
-                navbar.classList.add("animacion")
-                navbar.classList.add("bg-sky-950")
-                navbar.classList.remove("absolute")
-            };
-            
-            const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    setTimeout(agregarClases, 250)
-                }
-            });
-            });
-
-            observer.observe(navbar);
-
-            const manejarScroll = () => {
-            if (window.scrollY === 0) {
-                navbar.classList.remove("fixed");
-                navbar.classList.remove("animacion");
-                navbar.classList.remove("bg-sky-950")
-                navbar.classList.add("absolute")
-            }
-            };
-
-            document.addEventListener('scroll', manejarScroll);
-
-            botonAToggle.forEach(botonA => {
-                botonA.addEventListener('click', () => {
-                    if (window.innerWidth <= 767) {
-                    toggle();
-                    }
-                });
-            });
-
-        </script>
-        <style>
-            .animacion {
-            animation-name: animacion;
-            animation-duration: 0.5s;
-            animation-timing-function: ease-out;
-            }
-
-            @keyframes animacion {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            }
-
-            .animacion-salida {
-                animation-name: salidaHaciaAbajo;
-                animation-duration: 0.75s;
-                animation-timing-function: ease-out;
-            }
-
-            @keyframes salidaHaciaAbajo {
-                from {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-                to {
-                    opacity: 0;
-                    transform: translateY(10px);
-                }
-            }
-        </style>
     </div>
+<div id="cerrarClickAfuera" class="absolute w-screen h-screen hidden z-0"></div>
 </nav>
+<script>
+    // codigo para desplegar el navbar
+    const botonDesplegable = document.getElementById("botonDesplegable");
+    const mostrar = document.getElementById("mostrar");
+    const navbar = document.getElementById("navbar");
+    const botonAToggle = document.querySelectorAll('.usarToggle');
+    const cerrarClickAfuera = document.getElementById("cerrarClickAfuera");
+    let menuDesplegado = false;
+
+    const toggle = () => {
+        mostrar.classList.toggle("animacion");
+        if (mostrar.classList.contains("animacion")) {
+            mostrar.classList.toggle("hidden");
+            cerrarClickAfuera.classList.toggle("hidden");
+            mostrar.classList.toggle("flex");
+            mostrar.classList.remove("animacion-salida");
+            menuDesplegado = true;
+        } else {
+            mostrar.classList.toggle("animacion-salida");
+            menuDesplegado = false;
+            setTimeout(function() {
+            mostrar.classList.toggle("hidden");
+            cerrarClickAfuera.classList.toggle("hidden");
+            mostrar.classList.toggle("flex");
+            mostrar.classList.remove("animacion-salida");
+        }, 500); 
+        }
+    };
+
+    botonDesplegable.addEventListener("click", toggle);
+
+    const agregarClases = () => {
+        navbar.classList.add("fixed")
+        navbar.classList.add("animacion")
+        navbar.classList.add("bg-sky-950")
+        navbar.classList.remove("absolute")
+    };
+    
+    const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            setTimeout(agregarClases, 250)
+        }
+    });
+    });
+
+    observer.observe(navbar);
+
+    const manejarScroll = () => {
+    if (window.scrollY === 0) {
+        navbar.classList.remove("fixed");
+        navbar.classList.remove("animacion");
+        navbar.classList.remove("bg-sky-950")
+        navbar.classList.add("absolute")
+    }
+    };
+
+    document.addEventListener('scroll', manejarScroll);
+
+    botonAToggle.forEach(botonA => {
+        botonA.addEventListener('click', () => {
+            if (window.innerWidth <= 767) {
+            toggle();
+            }
+        });
+    });
+
+    cerrarClickAfuera.addEventListener("click", toggle)
+
+    const resize = () => {
+        if (window.innerWidth>768 && menuDesplegado) {
+            toggle();
+        } else if (window.innerWidth<768){
+        }
+    }
+    window.addEventListener("resize", resize)
+</script>
+<style>
+    .animacion {
+    animation-name: animacion;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    }
+
+    @keyframes animacion {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
+
+    .animacion-salida {
+        animation-name: salidaHaciaAbajo;
+        animation-duration: 0.75s;
+        animation-timing-function: ease-out;
+    }
+
+    @keyframes salidaHaciaAbajo {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+    }
+</style>

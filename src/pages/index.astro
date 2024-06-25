@@ -1,6 +1,6 @@
 ---
 
-import Layout from "../componentes/Layout.astro"
+import Layout from "../layout/Layout.astro"
 import { Image } from "astro:assets"
 import fotomia from "../imagenes/yo2.png"
 import argentina from "../imagenes/argentina.png"
@@ -20,19 +20,19 @@ import fotoLista from "../imagenes/lista de tareas.jpg"
 			<h1 class="md:text-start">Hola, soy Demián</h1>
 			<Image src={argentina} alt="bandera argentina" class="aspect-auto w-5 mb-3 ml-1"/>
 		</div>
-		<h2 class="md:text-start w-full text-xl text-pretty">Programador web autodidácta, entusiasta de las técnicas de programación, listo para emprender nuevos proyectos</h2>
+		<h2 class="md:text-start w-full text-pretty">Programador web autodidácta, entusiasta de las técnicas de programación, listo para emprender nuevos proyectos</h2>
 		<div class="flex gap-10 gap-y-0 flex-wrap">
 			<a href="https://github.com/Demian2023" target="_blank" class="flex items-center w-fit mt-4">
 				<svg viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-				<h2 class="ml-1">Github</h2>
+				<p class="ml-1">Github</p>
 			</a>
 			<a href="https://www.linkedin.com/in/demi%C3%A1n-diz-b4baa6237/" target="_blank" class="flex items-center w-fit mt-4">
-				<svg viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
-				<h2 class="ml-1">Linkedin</h2>
+				<svg viewBox="0 0 350 350"><path id="XMLID_802_" d="M72.16,99.73H9.927c-2.762,0-5,2.239-5,5v199.928c0,2.762,2.238,5,5,5H72.16c2.762,0,5-2.238,5-5V104.73 C77.16,101.969,74.922,99.73,72.16,99.73z"/><path id="XMLID_803_" d="M41.066,0.341C18.422,0.341,0,18.743,0,41.362C0,63.991,18.422,82.4,41.066,82.4 c22.626,0,41.033-18.41,41.033-41.038C82.1,18.743,63.692,0.341,41.066,0.341z"/><path id="XMLID_804_" d="M230.454,94.761c-24.995,0-43.472,10.745-54.679,22.954V104.73c0-2.761-2.238-5-5-5h-59.599 c-2.762,0-5,2.239-5,5v199.928c0,2.762,2.238,5,5,5h62.097c2.762,0,5-2.238,5-5v-98.918c0-33.333,9.054-46.319,32.29-46.319 c25.306,0,27.317,20.818,27.317,48.034v97.204c0,2.762,2.238,5,5,5H305c2.762,0,5-2.238,5-5V194.995 C310,145.43,300.549,94.761,230.454,94.761z"/></svg>
+				<p class="ml-1">Linkedin</p>
 			</a>
 			<a href="mailto:demiandiz@gmail.com" class="flex items-center w-fit mt-4">
 				<svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
-				<h2 class="ml-1">demiandiz@gmail.com</h2>
+				<p class="ml-1">demiandiz@gmail.com</p>
 			</a>
 		</div>
 	</Contenedor>
@@ -40,21 +40,21 @@ import fotoLista from "../imagenes/lista de tareas.jpg"
 		<h1 class="text-start w-full">Experiencia</h1>
 		<ul class="mt-4">
 			<li>
-				<h2>Desarrollo web - Curso de argentina programa 4.0</h2>
+				<h2>Desarrollo web <br> Curso de argentina programa 4.0</h2>
 				<a href="../imagenes/certificado desarrollo web.pdf" download="Certificado de desarrollo web.pdf" class="flex justify-start my-2">
 					<svg viewBox="0 0 512 512"><path d="M64 464l48 0 0 48-48 0c-35.3 0-64-28.7-64-64L0 64C0 28.7 28.7 0 64 0L229.5 0c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3L384 304l-48 0 0-144-80 0c-17.7 0-32-14.3-32-32l0-80L64 48c-8.8 0-16 7.2-16 16l0 384c0 8.8 7.2 16 16 16zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg>
-					<h3>Descargar certificado desarrollo web</h3>
+					<p>Descargar certificado desarrollo web</p>
 				</a>
 			</li>
 			<li>
-				<h2>Desarrollo web con REACT JS - Curso de argentina programa 4.0</h2>
+				<h2>Desarrollo web con REACT JS <br> Curso de argentina programa 4.0</h2>
 				<a href="../imagenes/certificado desarrollo web con react js.pdf" download="certificado desarrollo web con react js.pdf" class="flex justify-start my-2">
 					<svg viewBox="0 0 512 512"><path d="M64 464l48 0 0 48-48 0c-35.3 0-64-28.7-64-64L0 64C0 28.7 28.7 0 64 0L229.5 0c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3L384 304l-48 0 0-144-80 0c-17.7 0-32-14.3-32-32l0-80L64 48c-8.8 0-16 7.2-16 16l0 384c0 8.8 7.2 16 16 16zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg>
-					<h3>Descargar certificado desarrollo web con REACT JS</h3>
+					<p>Descargar certificado desarrollo web con REACT JS</p>
 				</a>
 			</li>
 			<li>
-				<h2>Como diseñador web, he adquirido mis habilidades de manera autodidacta en HTML, CSS y JavaScript, así como en el uso de bibliotecas y frameworks modernos como React y Astro. Esta búsqueda constante de aprendizaje me ha permitido desarrollar proyectos creativos y funcionales, demostrando mi capacidad para adaptarme y crecer en un entorno tecnológico en constante evolución</h2>
+				<p>Como diseñador web, he adquirido mis habilidades de manera autodidacta en HTML, CSS y JavaScript, así como en el uso de bibliotecas y frameworks modernos como React y Astro. Esta búsqueda constante de aprendizaje me ha permitido desarrollar proyectos creativos y funcionales, demostrando mi capacidad para adaptarme y crecer en un entorno tecnológico en constante evolución</p>
 			</li>
 		</ul>
 	</Contenedor>
@@ -62,72 +62,69 @@ import fotoLista from "../imagenes/lista de tareas.jpg"
 		<div class="flex flex-col text-start justify-start px-8 md:px-20 md:w-4/5 lg:w-2/3">
 			<h1>Proyectos</h1>	
 		</div>
-		<div class="flex flex-col text-start justify-start px-8 md:px-0 md:w-full">
-			<div class="flex justify-center gap-4 flex-wrap">
-				<Card
-				imagen={fotoCompararPrecios}
-				alt="Foto de la página"
-				titulo="Página creada para comparar precios"
-				subTitulo="A través del web scrapping se consiguen los precios y luego se los muestra a través de filtros"
-				direccionWeb="https://demian2023.github.io/compararprecios/"
-				/>
-				<Card
-				imagen={fotoCalendario}
-				alt="Foto del calendario"
-				titulo="Calendario"
-				subTitulo="Hecho en React, se utiliza localStorage para guardar las fechas"
-				direccionWeb="https://demian2023.github.io/CalendarioAgenda/"
-				/>
-				<Card
-				imagen={fotoLista}
-				alt="Foto de la página de la lista de tareas"
-				titulo="To do list/Lista de tareas"
-				subTitulo="Una página web para organizar tus listas de tareas, agregar editar borrar etc..."
-				direccionWeb="https://demian2023.github.io/ReactTareas/"
-				/>
-			</div>
+		<div class="flex justify-center gap-4 flex-wrap">
+			<Card
+			imagen={fotoCompararPrecios}
+			alt="Foto de la página"
+			titulo="Página creada para comparar precios"
+			subTitulo="A través del web scrapping se consiguen los precios y luego se los muestra a través de filtros"
+			direccionWeb="https://demian2023.github.io/compararprecios/"
+			/>
+			<Card
+			imagen={fotoCalendario}
+			alt="Foto del calendario"
+			titulo="Calendario"
+			subTitulo="Hecho en React, se utiliza localStorage para guardar las fechas"
+			direccionWeb="https://demian2023.github.io/CalendarioAgenda/"
+			/>
+			<Card
+			imagen={fotoLista}
+			alt="Foto de la página de la lista de tareas"
+			titulo="To do list/Lista de tareas"
+			subTitulo="Una página web para organizar tus listas de tareas, agregar editar borrar etc..."
+			direccionWeb="https://demian2023.github.io/ReactTareas/"
+			/>
 		</div>
 	</div>
-	<Contenedor id="sobremi">
-		<h1>Sobre mi</h1>
-		<h2>Inicié mi camino en la programación en 2022, y en 2023 amplié mis habilidades completando dos cursos de Argentina programa 4.0 en. <br> A lo largo de 2024, he consolidado mi experiencia trabajando en diversos proyectos, todos los cuales están presentados en este portfolio. <br> Actualmente, tengo planes concretos para este año: adquirir un dominio propio y ofrecer subdominios a emprendedores de Venado Tuerto. Este paso estratégico no solo fortalecerá mi presencia en la web, sino que también me permitirá expandir mi lista de proyectos con clientes reales. Mi conjunto de habilidades incluye HTML, CSS, JavaScript, React, Astro y Tailwind, lo que me capacita para desarrollar soluciones web efectivas y atractivas.</h2>
-	</Contenedor>
-	<Footer/>
+	<div class="custom-shape-divider-bottom-1718403728 mt-24">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+        </svg>
+    </div>
+	<div class="bg-[#0278c7]">
+		<Contenedor id="sobremi">
+			<h1>Sobre mi</h1>
+			<p>Inicié mi camino en la programación en 2022, y en 2023 amplié mis habilidades completando dos cursos de Argentina programa 4.0. <br> A lo largo de 2024, he consolidado mi experiencia trabajando en diversos proyectos, todos los cuales están presentados en este portfolio. <br> Actualmente, tengo planes concretos para este año: adquirir un dominio propio y ofrecer subdominios a emprendedores de Venado Tuerto. Este paso estratégico no solo fortalecerá mi presencia en la web, sino que también me permitirá expandir mi lista de proyectos con clientes reales. Mi conjunto de habilidades incluye HTML, CSS, JavaScript, React, Astro y Tailwind, lo que me capacita para desarrollar soluciones web efectivas y atractivas.</p>
+		</Contenedor>
+	</div>
+	<div class="bg-[#0278c7] mb-4">
+		<Footer/>
+	</div>
 </Layout>
-<script>
-	const imagenes = document.getElementsByClassName("imagen");
 
-	const observer = new IntersectionObserver(entries => {
-		entries.forEach(entry => {
-			if (entry.isIntersecting) {
-				entry.target.style.animation = "mostrar 1s forwards";
-			} else {
-				entry.target.style.animation = "";
-			}
-		});
-	});
-
-	for (let i = 0; i < imagenes.length; i++) {
-		observer.observe(imagenes[i]);
-	}
-
-</script>
 <style>
-	@keyframes mostrar {
-    from {
-        opacity: 0;
-        transform: translateY(10%) scale(0.75);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+    .custom-shape-divider-bottom-1718403728 {
+    position: relative;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
 }
 
-.imagen {
-	position: relative;
-    z-index: 1;
-	opacity: 0;
-	scale: 25%;
+.custom-shape-divider-bottom-1718403728 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    min-width: 780px;
+    height: 52px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1718403728 .shape-fill {
+    fill: #0278c7;
 }
 </style>

@@ -20,7 +20,7 @@ const imagenObtenida = await getImage({
 });
 ---
 
-<div class="imagen opacity-0 max-w-lg md:max-w-sm lg:max-w-90 bg-white rounded-lg shadow border-2 border-white mt-4">
+<div class="imagen w-full mx-4 min-w-68 md:w-[calc(50vw-40px)] md:min-w-0 lg:w-[calc(33vw-20px)] lg:mx-0 bg-white rounded-lg shadow border-2 border-white mt-4">
     <picture>
         <source media="(min-width: 800px)" srcset={imagenObtenida.src} />
         <img class="rounded-t-lg aspect-[3/2]" src={imagenObtenida.src} alt={alt} />
@@ -29,7 +29,7 @@ const imagenObtenida = await getImage({
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-sky-950 text-pretty">{titulo}</h5>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-pretty">{subTitulo}</p>
         <a href={direccionWeb} target="_blank" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-sky-200 hover:text-white bg-sky-950 rounded-lg">
-            <h3>Visitar página</h3>
+            <p class="text-sm">Ver página</p>
              <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
             </svg>
